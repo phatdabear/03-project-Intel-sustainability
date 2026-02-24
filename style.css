@@ -1,0 +1,272 @@
+/* ===========================
+   DESIGN TOKENS + GLOBAL
+   =========================== */
+
+:root {
+  --intel-blue: #0071c5;
+  --intel-blue-dark: #005a9c;
+  --intel-blue-light: #00a3e0;
+  --text-strong: #0f172a;
+  --text-body: #334155;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 40px;
+  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 14px 30px rgba(15, 23, 42, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text-body);
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===========================
+   HERO
+   =========================== */
+
+header {
+  margin: var(--space-4);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0)),
+    linear-gradient(135deg, var(--intel-blue-dark) 0%, var(--intel-blue) 55%, var(--intel-blue-light) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+header > div {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+}
+
+header img {
+  width: 112px;
+  height: auto;
+  margin-bottom: var(--space-2);
+}
+
+header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+header p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1rem, 2.1vw, 1.2rem);
+  line-height: 1.7;
+}
+
+/* ===========================
+   TIMELINE CONTAINER
+   =========================== */
+
+section {
+  margin: var(--space-4);
+  padding: var(--space-4);
+  background-color: var(--surface-muted);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  overflow: visible;
+}
+
+/* ===========================
+   MILESTONE CARDS
+   =========================== */
+
+section > div {
+  width: 100%;
+  min-width: 100%;
+  background-color: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-4);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+section > div:hover,
+section > div:focus,
+section > div:focus-within {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: var(--shadow-hover);
+}
+
+section > div:focus-visible,
+section > div:focus,
+section > div:focus-within {
+  outline: 3px solid var(--intel-blue);
+  outline-offset: 2px;
+}
+
+section h2 {
+  margin: 0 0 var(--space-1) 0;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 113, 197, 0.1);
+  color: var(--intel-blue);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+section h3 {
+  margin: 0 0 var(--space-2) 0;
+  color: var(--text-strong);
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+section > div img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin: var(--space-1) 0 var(--space-2) 0;
+}
+
+section > div p {
+  margin: 0;
+  color: var(--text-body);
+  font-size: 0.97rem;
+  line-height: 1.65;
+
+  /* Show a short preview by default */
+  max-height: 4.9em;
+  overflow: hidden;
+
+  /* Smoothly reveal more details on interaction */
+  transition: max-height 0.32s ease;
+}
+
+section > div:hover p,
+section > div:focus p,
+section > div:focus-within p,
+section > div.is-open p {
+  max-height: 18em;
+}
+
+/* Timeline helper text below cards */
+.timeline-note {
+  margin: 0 var(--space-4) var(--space-5);
+  text-align: center;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+/* ===========================
+   RESPONSIVE BREAKPOINTS
+   =========================== */
+
+/* Small phones */
+@media (max-width: 480px) {
+  header {
+    margin: var(--space-3);
+  }
+
+  header > div {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  header img {
+    width: 84px;
+  }
+
+  section {
+    margin: var(--space-3);
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  section > div {
+    padding: var(--space-3);
+  }
+
+  section > div img {
+    height: 180px;
+  }
+
+  section > div p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .timeline-note {
+    margin: 0 var(--space-3) var(--space-4);
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop timeline: horizontal scroll + snap */
+@media (min-width: 901px) {
+  section {
+    flex-direction: row;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--space-5) var(--space-4);
+  }
+
+  section > div {
+    min-width: 320px;
+    width: 320px;
+    scroll-snap-align: center;
+  }
+}
+
+/* Tablet fine-tuning */
+@media (min-width: 481px) and (max-width: 900px) {
+  header > div {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  section {
+    padding: var(--space-4);
+  }
+
+  section > div img {
+    height: 190px;
+  }
+}

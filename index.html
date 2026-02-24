@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel: Sustainability Through the Ages</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <header>
+    <div>
+      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
+      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
+      <!-- Main Heading -->
+      <h1>
+        Sustainability Through the Ages
+      </h1>
+
+      <!-- Subheading / Description -->
+      <p>
+        Explore Intel's journey through time, discovering how our commitment
+        to innovation has shaped a more sustainable future for technology 
+        and our planet.
+      </p>
+    </div>
+  </header>
+
+  <!-- Timeline Cards Section -->
+  <section aria-label="Intel sustainability timeline">
+
+    <!-- Card 1: 1968 -->
+    <div tabindex="0">
+      <h2>1968</h2>
+      <h3>Intel Founded</h3>
+      <!-- Milestone image: Early Semiconductor Technology (1968) -->
+      <img src="img/1.jpg" alt="Early semiconductor technology at Intel in 1968" loading="lazy" />
+      <p>
+        Robert Noyce and Gordon Moore rename the newly formed company 
+        NM Electronics to Intel Corporation, laying the foundation for 
+        decades of technological innovation.
+      </p>
+    </div>
+
+    <!-- Card 2: 1971 -->
+    <div tabindex="0">
+      <h2>1971</h2>
+      <h3>First Microprocessor</h3>
+      <!-- Milestone image: Microprocessor Innovation -->
+      <img src="img/2.jpg" alt="Microprocessor innovation milestone at Intel" loading="lazy" />
+      <p>
+        Intel debuts the 4004, the world's first commercial microprocessor, 
+        igniting the microprocessor revolution and propelling the future 
+        of computing devices.
+      </p>
+    </div>
+
+    <!-- Card 3: 1978 -->
+    <div tabindex="0">
+      <h2>1978</h2>
+      <h3>8086 Processor</h3>
+      <!-- Milestone image: Intel 8086 (1978) -->
+      <img src="img/3.jpg" alt="Intel 8086 processor milestone in 1978" loading="lazy" />
+      <p>
+        Launch of the 8086 processor, establishing the x86 architecture 
+        that drives countless PCs and servers in the modern era.
+      </p>
+    </div>
+
+    <!-- Card 4: 1985 -->
+    <div tabindex="0">
+      <h2>1985</h2>
+      <h3>386 Processor</h3>
+      <!-- Milestone image: Intel Processor Advancement (1985) -->
+      <img src="img/4.jpg" alt="Intel processor advancement milestone in 1985" loading="lazy" />
+      <p>
+        Intel introduces the 386 processor with 32-bit architecture, 
+        ushering in a new era of performance and multitasking for 
+        personal computers.
+      </p>
+    </div>
+
+  </section>
+  <p class="timeline-note">Hover or focus each card to learn more.</p>
+
+  <script>
+    // Select timeline section and all milestone cards
+    const timeline = document.querySelector("section");
+    const milestoneCards = timeline
+      ? Array.from(timeline.querySelectorAll(":scope > div"))
+      : [];
+
+    // Toggle expanded details on a card
+    function toggleCardDetails(card) {
+      const isOpen = card.classList.toggle("is-open");
+      card.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    }
+
+    // Horizontal keyboard scroll for desktop timeline
+    function scrollTimelineWithArrow(key) {
+      // Only apply arrow scrolling for desktop horizontal layout
+      if (!timeline || window.innerWidth <= 900) {
+        return;
+      }
+
+      const scrollStep = 320;
+
+      if (key === "ArrowRight") {
+        timeline.scrollBy({ left: scrollStep, behavior: "smooth" });
+      }
+
+      if (key === "ArrowLeft") {
+        timeline.scrollBy({ left: -scrollStep, behavior: "smooth" });
+      }
+    }
+
+    // Add ARIA and keyboard events to each card
+    milestoneCards.forEach((card, index) => {
+      const details = card.querySelector("p");
+
+      // Make each card accessible as an interactive element
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-expanded", "false");
+
+      if (details) {
+        const detailsId = `milestone-details-${index + 1}`;
+        details.id = detailsId;
+        card.setAttribute("aria-controls", detailsId);
+      }
+
+      // Toggle details with Enter or Space, and scroll with arrow keys
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleCardDetails(card);
+        }
+
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          scrollTimelineWithArrow(event.key);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
