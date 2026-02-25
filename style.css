@@ -7,9 +7,9 @@
   --intel-blue-dark: #005a9c;
   --intel-blue-light: #00a3e0;
   --text-strong: #0f172a;
-  --text-body: #334155;
+  --text-body: #1e293b;
   --surface: #ffffff;
-  --surface-muted: #f1f5f9;
+  --surface-muted: #eaf2fb;
   --radius-sm: 10px;
   --radius-md: 14px;
   --space-1: 8px;
@@ -43,11 +43,39 @@ img {
   height: auto;
 }
 
+/* Skip link appears only when focused for keyboard users */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -50px;
+  background: #ffffff;
+  color: var(--intel-blue-dark);
+  border: 2px solid var(--intel-blue);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Clear focus rings for links, buttons, and form fields */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--intel-blue);
+  outline-offset: 3px;
+}
+
 /* ===========================
    HERO
    =========================== */
 
-header {
+.hero-section {
   margin: var(--space-4);
   border-radius: var(--radius-md);
   background:
@@ -56,24 +84,11 @@ header {
   box-shadow: var(--shadow-soft);
 }
 
-header > div {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: var(--space-6) var(--space-4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-2);
-}
-
-header img {
+.hero-logo {
   width: 112px;
-  height: auto;
-  margin-bottom: var(--space-2);
 }
 
-header h1 {
+.hero-section h1 {
   margin: 0;
   color: #ffffff;
   font-size: clamp(2rem, 5vw, 3.4rem);
@@ -82,20 +97,48 @@ header h1 {
   letter-spacing: -0.02em;
 }
 
-header p {
-  margin: 0;
+.hero-subtitle {
   max-width: 760px;
-  color: rgba(255, 255, 255, 0.94);
+  color: #ffffff;
   font-size: clamp(1rem, 2.1vw, 1.2rem);
   line-height: 1.7;
 }
 
+.direction-toggle {
+  border: 1px solid rgba(0, 113, 197, 0.22);
+  color: var(--intel-blue-dark);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.direction-toggle:hover {
+  border-color: var(--intel-blue);
+}
+
 /* ===========================
-   TIMELINE CONTAINER
+   COMMON SECTIONS
    =========================== */
 
-section {
-  margin: var(--space-4);
+.section-title {
+  margin: 0 0 var(--space-3) 0;
+  color: var(--text-strong);
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  font-weight: 800;
+}
+
+.timeline-wrapper,
+.features-section,
+.newsletter-section {
+  margin-bottom: var(--space-5);
+}
+
+/* ===========================
+   TIMELINE
+   =========================== */
+
+.timeline-track {
   padding: var(--space-4);
   background-color: var(--surface-muted);
   border-radius: var(--radius-md);
@@ -105,11 +148,7 @@ section {
   overflow: visible;
 }
 
-/* ===========================
-   MILESTONE CARDS
-   =========================== */
-
-section > div {
+.milestone-card {
   width: 100%;
   min-width: 100%;
   background-color: var(--surface);
@@ -119,21 +158,21 @@ section > div {
   transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 
-section > div:hover,
-section > div:focus,
-section > div:focus-within {
+.milestone-card:hover,
+.milestone-card:focus,
+.milestone-card:focus-within {
   transform: translateY(-4px) scale(1.012);
   box-shadow: var(--shadow-hover);
 }
 
-section > div:focus-visible,
-section > div:focus,
-section > div:focus-within {
+.milestone-card:focus-visible,
+.milestone-card:focus,
+.milestone-card:focus-within {
   outline: 3px solid var(--intel-blue);
   outline-offset: 2px;
 }
 
-section h2 {
+.milestone-card h3 {
   margin: 0 0 var(--space-1) 0;
   display: inline-block;
   padding: 4px 10px;
@@ -145,7 +184,7 @@ section h2 {
   line-height: 1.2;
 }
 
-section h3 {
+.milestone-card h4 {
   margin: 0 0 var(--space-2) 0;
   color: var(--text-strong);
   font-size: clamp(1.05rem, 2.2vw, 1.3rem);
@@ -153,7 +192,7 @@ section h3 {
   font-weight: 700;
 }
 
-section > div img {
+.milestone-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
@@ -165,33 +204,132 @@ section > div img {
   margin: var(--space-1) 0 var(--space-2) 0;
 }
 
-section > div p {
+.milestone-card p {
   margin: 0;
   color: var(--text-body);
   font-size: 0.97rem;
   line-height: 1.65;
-
-  /* Show a short preview by default */
   max-height: 4.9em;
   overflow: hidden;
-
-  /* Smoothly reveal more details on interaction */
   transition: max-height 0.32s ease;
 }
 
-section > div:hover p,
-section > div:focus p,
-section > div:focus-within p,
-section > div.is-open p {
+.milestone-card:hover p,
+.milestone-card:focus p,
+.milestone-card:focus-within p,
+.milestone-card.is-open p {
   max-height: 18em;
 }
 
-/* Timeline helper text below cards */
 .timeline-note {
-  margin: 0 var(--space-4) var(--space-5);
+  margin: var(--space-3) 0 0;
   text-align: center;
-  color: #475569;
+  color: #334155;
   font-size: 0.95rem;
+}
+
+/* ===========================
+   THREE COLUMN FEATURES
+   =========================== */
+
+.feature-card {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-4);
+}
+
+.feature-icon {
+  font-size: 1.85rem;
+  color: var(--intel-blue);
+  margin-bottom: var(--space-2);
+}
+
+.feature-card h3 {
+  margin: 0 0 var(--space-1) 0;
+  color: var(--text-strong);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+/* ===========================
+   NEWSLETTER FORM
+   =========================== */
+
+.newsletter-form {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-4);
+}
+
+.form-help-text {
+  margin-bottom: var(--space-3);
+  color: #334155;
+}
+
+.form-label {
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+.form-control {
+  border: 1px solid #cbd5e1;
+}
+
+.form-control:focus {
+  border-color: var(--intel-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0, 113, 197, 0.22);
+}
+
+.intel-btn {
+  background-color: var(--intel-blue);
+  border-color: var(--intel-blue);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.intel-btn:hover,
+.intel-btn:focus-visible {
+  background-color: var(--intel-blue-dark);
+  border-color: var(--intel-blue-dark);
+  color: #ffffff;
+}
+
+.success-message {
+  color: #0f5132;
+  background: #d1e7dd;
+  border: 1px solid #badbcc;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+/* ===========================
+   RTL SUPPORT
+   =========================== */
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+html[dir="rtl"] .timeline-note {
+  text-align: center;
+}
+
+html[dir="rtl"] .timeline-track {
+  direction: rtl;
+}
+
+html[dir="rtl"] .milestone-card,
+html[dir="rtl"] .feature-card,
+html[dir="rtl"] .newsletter-form {
+  text-align: right;
 }
 
 /* ===========================
@@ -200,46 +338,40 @@ section > div.is-open p {
 
 /* Small phones */
 @media (max-width: 480px) {
-  header {
+  .hero-section {
     margin: var(--space-3);
   }
 
-  header > div {
-    padding: var(--space-5) var(--space-3);
-  }
-
-  header img {
+  .hero-logo {
     width: 84px;
   }
 
-  section {
-    margin: var(--space-3);
+  .timeline-track {
     padding: var(--space-3);
     gap: var(--space-3);
   }
 
-  section > div {
+  .milestone-card {
     padding: var(--space-3);
   }
 
-  section > div img {
+  .milestone-card img {
     height: 180px;
   }
 
-  section > div p {
+  .milestone-card p {
     font-size: 0.92rem;
     line-height: 1.6;
   }
 
   .timeline-note {
-    margin: 0 var(--space-3) var(--space-4);
     font-size: 0.9rem;
   }
 }
 
 /* Desktop timeline: horizontal scroll + snap */
 @media (min-width: 901px) {
-  section {
+  .timeline-track {
     flex-direction: row;
     align-items: stretch;
     overflow-x: auto;
@@ -249,7 +381,7 @@ section > div.is-open p {
     padding: var(--space-5) var(--space-4);
   }
 
-  section > div {
+  .milestone-card {
     min-width: 320px;
     width: 320px;
     scroll-snap-align: center;
@@ -258,15 +390,7 @@ section > div.is-open p {
 
 /* Tablet fine-tuning */
 @media (min-width: 481px) and (max-width: 900px) {
-  header > div {
-    padding: var(--space-6) var(--space-5);
-  }
-
-  section {
-    padding: var(--space-4);
-  }
-
-  section > div img {
+  .milestone-card img {
     height: 190px;
   }
 }

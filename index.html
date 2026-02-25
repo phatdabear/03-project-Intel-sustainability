@@ -4,92 +4,347 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Header / Hero Section -->
-  <header>
-    <div>
-      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
-      <!-- Main Heading -->
-      <h1>
-        Sustainability Through the Ages
-      </h1>
+  <header class="hero-section" aria-label="Intel sustainability hero">
+    <div class="container-xl py-4 py-md-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 d-flex justify-content-end">
+          <!-- Language direction toggle for global audiences -->
+          <button
+            id="directionToggle"
+            class="btn btn-light direction-toggle"
+            type="button"
+            aria-label="Switch page reading direction"
+            aria-pressed="false"
+          >
+            <i class="bi bi-globe2" aria-hidden="true"></i>
+            <span id="directionToggleText">Switch to Arabic (RTL)</span>
+          </button>
+        </div>
 
-      <!-- Subheading / Description -->
-      <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
-        and our planet.
-      </p>
+        <div class="col-12 text-center">
+          <img src="img/intel-header-logo.svg" alt="Intel corporate logo" class="hero-logo mx-auto" />
+          <h1 id="heroTitle" class="mt-3 mb-3">Sustainability Through the Ages</h1>
+          <p id="heroSubtitle" class="hero-subtitle mx-auto mb-0">
+            Explore Intel's journey through time, discovering how our commitment
+            to innovation has shaped a more sustainable future for technology
+            and our planet.
+          </p>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <section aria-label="Intel sustainability timeline">
+  <main id="main-content">
+    <!-- Timeline section remains intact with original content -->
+    <section class="timeline-wrapper container-xl" aria-labelledby="timeline-heading">
+      <div class="row">
+        <div class="col-12">
+          <h2 id="timeline-heading" class="section-title">Intel Sustainability Timeline</h2>
 
-    <!-- Card 1: 1968 -->
-    <div tabindex="0">
-      <h2>1968</h2>
-      <h3>Intel Founded</h3>
-      <!-- Milestone image: Early Semiconductor Technology (1968) -->
-      <img src="img/1.jpg" alt="Early semiconductor technology at Intel in 1968" loading="lazy" />
-      <p>
-        Robert Noyce and Gordon Moore rename the newly formed company 
-        NM Electronics to Intel Corporation, laying the foundation for 
-        decades of technological innovation.
-      </p>
-    </div>
+          <div class="timeline-track" aria-label="Intel sustainability timeline">
+            <!-- Card 1: 1968 -->
+            <article class="milestone-card" tabindex="0">
+              <h3>1968</h3>
+              <h4 id="milestone1Title">Intel Founded</h4>
+              <img src="img/1.jpg" alt="Black and white photo representing Intel early semiconductor technology in 1968" loading="lazy" />
+              <p id="milestone1Text">
+                Robert Noyce and Gordon Moore rename the newly formed company
+                NM Electronics to Intel Corporation, laying the foundation for
+                decades of technological innovation.
+              </p>
+            </article>
 
-    <!-- Card 2: 1971 -->
-    <div tabindex="0">
-      <h2>1971</h2>
-      <h3>First Microprocessor</h3>
-      <!-- Milestone image: Microprocessor Innovation -->
-      <img src="img/2.jpg" alt="Microprocessor innovation milestone at Intel" loading="lazy" />
-      <p>
-        Intel debuts the 4004, the world's first commercial microprocessor, 
-        igniting the microprocessor revolution and propelling the future 
-        of computing devices.
-      </p>
-    </div>
+            <!-- Card 2: 1971 -->
+            <article class="milestone-card" tabindex="0">
+              <h3>1971</h3>
+              <h4 id="milestone2Title">First Microprocessor</h4>
+              <img src="img/2.jpg" alt="Historic Intel microprocessor chip milestone from 1971" loading="lazy" />
+              <p id="milestone2Text">
+                Intel debuts the 4004, the world's first commercial microprocessor,
+                igniting the microprocessor revolution and propelling the future
+                of computing devices.
+              </p>
+            </article>
 
-    <!-- Card 3: 1978 -->
-    <div tabindex="0">
-      <h2>1978</h2>
-      <h3>8086 Processor</h3>
-      <!-- Milestone image: Intel 8086 (1978) -->
-      <img src="img/3.jpg" alt="Intel 8086 processor milestone in 1978" loading="lazy" />
-      <p>
-        Launch of the 8086 processor, establishing the x86 architecture 
-        that drives countless PCs and servers in the modern era.
-      </p>
-    </div>
+            <!-- Card 3: 1978 -->
+            <article class="milestone-card" tabindex="0">
+              <h3>1978</h3>
+              <h4 id="milestone3Title">8086 Processor</h4>
+              <img src="img/3.jpg" alt="Intel 8086 processor that established the x86 architecture" loading="lazy" />
+              <p id="milestone3Text">
+                Launch of the 8086 processor, establishing the x86 architecture
+                that drives countless PCs and servers in the modern era.
+              </p>
+            </article>
 
-    <!-- Card 4: 1985 -->
-    <div tabindex="0">
-      <h2>1985</h2>
-      <h3>386 Processor</h3>
-      <!-- Milestone image: Intel Processor Advancement (1985) -->
-      <img src="img/4.jpg" alt="Intel processor advancement milestone in 1985" loading="lazy" />
-      <p>
-        Intel introduces the 386 processor with 32-bit architecture, 
-        ushering in a new era of performance and multitasking for 
-        personal computers.
-      </p>
-    </div>
+            <!-- Card 4: 1985 -->
+            <article class="milestone-card" tabindex="0">
+              <h3>1985</h3>
+              <h4 id="milestone4Title">386 Processor</h4>
+              <img src="img/4.jpg" alt="Intel 386 processor representing 32-bit computing progress in 1985" loading="lazy" />
+              <p id="milestone4Text">
+                Intel introduces the 386 processor with 32-bit architecture,
+                ushering in a new era of performance and multitasking for
+                personal computers.
+              </p>
+            </article>
+          </div>
 
-  </section>
-  <p class="timeline-note">Hover or focus each card to learn more.</p>
+          <p id="timelineNote" class="timeline-note mb-0">Hover, focus, or tap each card to learn more.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three-column sustainability highlights section -->
+    <section class="container-xl features-section" aria-labelledby="features-heading">
+      <div class="row">
+        <div class="col-12">
+          <h2 id="features-heading" class="section-title">Global Sustainability Priorities</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="feature-card h-100" aria-label="Climate action initiative">
+            <i class="bi bi-globe-americas feature-icon" aria-hidden="true"></i>
+            <h3 id="feature1Title">Climate Action</h3>
+            <p id="feature1Text">
+              Intel supports global climate initiatives through energy-efficient products,
+              renewable power adoption, and science-based emissions goals.
+            </p>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="feature-card h-100" aria-label="Responsible manufacturing initiative">
+            <i class="bi bi-cpu feature-icon" aria-hidden="true"></i>
+            <h3 id="feature2Title">Responsible Manufacturing</h3>
+            <p id="feature2Text">
+              Our manufacturing strategy focuses on water stewardship, reduced waste,
+              and safer processes across global facilities and supply chains.
+            </p>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="feature-card h-100" aria-label="Inclusive innovation initiative">
+            <i class="bi bi-people feature-icon" aria-hidden="true"></i>
+            <h3 id="feature3Title">Inclusive Innovation</h3>
+            <p id="feature3Text">
+              Intel invests in inclusive innovation programs that help communities,
+              students, and partners build a more equitable digital future.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter subscription form -->
+    <section class="container-xl newsletter-section" aria-labelledby="newsletter-heading">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <form id="newsletterForm" class="newsletter-form" novalidate aria-describedby="newsletter-help">
+            <h2 id="newsletter-heading" class="section-title mb-3">Subscribe to Our Sustainability Newsletter</h2>
+            <p id="newsletter-help" class="form-help-text">
+              Receive the latest Intel sustainability stories, updates, and milestones.
+            </p>
+
+            <div class="mb-3">
+              <label id="nameLabel" for="subscriberName" class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subscriberName"
+                name="subscriberName"
+                autocomplete="name"
+                required
+                aria-required="true"
+              />
+              <div id="nameInvalid" class="invalid-feedback">Please enter your name.</div>
+            </div>
+
+            <div class="mb-3">
+              <label id="emailLabel" for="subscriberEmail" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="subscriberEmail"
+                name="subscriberEmail"
+                autocomplete="email"
+                required
+                aria-required="true"
+              />
+              <div id="emailInvalid" class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+
+            <button id="subscribeButton" type="submit" class="btn intel-btn" aria-label="Submit newsletter subscription">
+              Subscribe
+            </button>
+
+            <p
+              id="newsletterSuccess"
+              class="success-message mt-3 mb-0"
+              role="status"
+              aria-live="polite"
+              hidden
+            >
+              Thank you for subscribing. You are now on our sustainability newsletter list.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script>
-    // Select timeline section and all milestone cards
-    const timeline = document.querySelector("section");
+    // Select timeline and all milestone cards
+    const timeline = document.querySelector(".timeline-track");
     const milestoneCards = timeline
-      ? Array.from(timeline.querySelectorAll(":scope > div"))
+      ? Array.from(timeline.querySelectorAll(":scope > .milestone-card"))
       : [];
+
+    // Direction controls
+    const directionToggle = document.getElementById("directionToggle");
+    const directionToggleText = document.getElementById("directionToggleText");
+
+    // Simple translation content for English and Arabic
+    const translations = {
+      en: {
+        heroTitle: "Sustainability Through the Ages",
+        heroSubtitle:
+          "Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.",
+        "timeline-heading": "Intel Sustainability Timeline",
+        milestone1Title: "Intel Founded",
+        milestone1Text:
+          "Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation.",
+        milestone2Title: "First Microprocessor",
+        milestone2Text:
+          "Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices.",
+        milestone3Title: "8086 Processor",
+        milestone3Text:
+          "Launch of the 8086 processor, establishing the x86 architecture that drives countless PCs and servers in the modern era.",
+        milestone4Title: "386 Processor",
+        milestone4Text:
+          "Intel introduces the 386 processor with 32-bit architecture, ushering in a new era of performance and multitasking for personal computers.",
+        timelineNote: "Hover, focus, or tap each card to learn more.",
+        "features-heading": "Global Sustainability Priorities",
+        feature1Title: "Climate Action",
+        feature1Text:
+          "Intel supports global climate initiatives through energy-efficient products, renewable power adoption, and science-based emissions goals.",
+        feature2Title: "Responsible Manufacturing",
+        feature2Text:
+          "Our manufacturing strategy focuses on water stewardship, reduced waste, and safer processes across global facilities and supply chains.",
+        feature3Title: "Inclusive Innovation",
+        feature3Text:
+          "Intel invests in inclusive innovation programs that help communities, students, and partners build a more equitable digital future.",
+        "newsletter-heading": "Subscribe to Our Sustainability Newsletter",
+        "newsletter-help":
+          "Receive the latest Intel sustainability stories, updates, and milestones.",
+        nameLabel: "Name",
+        nameInvalid: "Please enter your name.",
+        emailLabel: "Email",
+        emailInvalid: "Please enter a valid email address.",
+        subscribeButton: "Subscribe",
+        newsletterSuccess:
+          "Thank you for subscribing. You are now on our sustainability newsletter list.",
+      },
+      ar: {
+        heroTitle: "الاستدامة عبر العصور",
+        heroSubtitle:
+          "استكشف رحلة إنتل عبر الزمن، واكتشف كيف أسهم التزامنا بالابتكار في بناء مستقبل أكثر استدامة للتقنية وكوكبنا.",
+        "timeline-heading": "الخط الزمني لاستدامة إنتل",
+        milestone1Title: "تأسيس إنتل",
+        milestone1Text:
+          "قام روبرت نويس وغوردون مور بإعادة تسمية الشركة الجديدة من NM Electronics إلى شركة Intel، مما وضع الأساس لعقود من الابتكار التقني.",
+        milestone2Title: "أول معالج دقيق",
+        milestone2Text:
+          "قدمت إنتل المعالج 4004، وهو أول معالج دقيق تجاري في العالم، مما أشعل ثورة المعالجات ومهّد لمستقبل أجهزة الحوسبة.",
+        milestone3Title: "معالج 8086",
+        milestone3Text:
+          "إطلاق معالج 8086 الذي أسّس معمارية x86 التي تشغّل عدداً هائلاً من أجهزة الكمبيوتر والخوادم الحديثة.",
+        milestone4Title: "معالج 386",
+        milestone4Text:
+          "قدمت إنتل معالج 386 بمعمارية 32 بت، لتبدأ حقبة جديدة من الأداء وتعدد المهام في الحواسيب الشخصية.",
+        timelineNote: "مرر المؤشر أو ركّز أو المس كل بطاقة لمعرفة المزيد.",
+        "features-heading": "أولويات الاستدامة العالمية",
+        feature1Title: "العمل المناخي",
+        feature1Text:
+          "تدعم إنتل المبادرات المناخية العالمية عبر منتجات موفرة للطاقة، واعتماد الطاقة المتجددة، وأهداف انبعاثات مبنية على أسس علمية.",
+        feature2Title: "تصنيع مسؤول",
+        feature2Text:
+          "تركز استراتيجيتنا التصنيعية على ترشيد استخدام المياه، وتقليل النفايات، وتحسين السلامة عبر المنشآت وسلاسل الإمداد العالمية.",
+        feature3Title: "ابتكار شامل",
+        feature3Text:
+          "تستثمر إنتل في برامج الابتكار الشامل التي تساعد المجتمعات والطلاب والشركاء على بناء مستقبل رقمي أكثر عدلاً.",
+        "newsletter-heading": "اشترك في نشرتنا للاستدامة",
+        "newsletter-help":
+          "احصل على أحدث قصص وتحديثات ومحطات استدامة إنتل.",
+        nameLabel: "الاسم",
+        nameInvalid: "يرجى إدخال اسمك.",
+        emailLabel: "البريد الإلكتروني",
+        emailInvalid: "يرجى إدخال بريد إلكتروني صالح.",
+        subscribeButton: "اشتراك",
+        newsletterSuccess:
+          "شكرًا لاشتراكك. لقد تمت إضافتك إلى قائمة نشرتنا للاستدامة.",
+      },
+    };
+
+    function applyTranslations(languageCode) {
+      const content = translations[languageCode];
+
+      if (!content) {
+        return;
+      }
+
+      // Each key matches an element id in the page
+      Object.entries(content).forEach(([id, text]) => {
+        const element = document.getElementById(id);
+
+        if (element) {
+          element.textContent = text;
+        }
+      });
+    }
+
+    function setDirection(direction) {
+      const isRtl = direction === "rtl";
+      document.documentElement.setAttribute("dir", direction);
+      document.documentElement.setAttribute("lang", isRtl ? "ar" : "en");
+
+      // Apply translated text based on direction
+      applyTranslations(isRtl ? "ar" : "en");
+
+      if (directionToggle && directionToggleText) {
+        directionToggle.setAttribute("aria-pressed", isRtl ? "true" : "false");
+        directionToggleText.textContent = isRtl
+          ? "Switch to English (LTR)"
+          : "Switch to Arabic (RTL)";
+      }
+    }
+
+    if (directionToggle) {
+      directionToggle.addEventListener("click", () => {
+        const currentDirection = document.documentElement.getAttribute("dir") || "ltr";
+        setDirection(currentDirection === "ltr" ? "rtl" : "ltr");
+      });
+    }
 
     // Toggle expanded details on a card
     function toggleCardDetails(card) {
@@ -104,15 +359,12 @@
         return;
       }
 
+      const isRtl = document.documentElement.getAttribute("dir") === "rtl";
       const scrollStep = 320;
+      const moveForward = key === "ArrowRight";
+      const scrollValue = (moveForward ? 1 : -1) * (isRtl ? -scrollStep : scrollStep);
 
-      if (key === "ArrowRight") {
-        timeline.scrollBy({ left: scrollStep, behavior: "smooth" });
-      }
-
-      if (key === "ArrowLeft") {
-        timeline.scrollBy({ left: -scrollStep, behavior: "smooth" });
-      }
+      timeline.scrollBy({ left: scrollValue, behavior: "smooth" });
     }
 
     // Add ARIA and keyboard events to each card
@@ -124,8 +376,12 @@
       card.setAttribute("aria-expanded", "false");
 
       if (details) {
-        const detailsId = `milestone-details-${index + 1}`;
-        details.id = detailsId;
+        const detailsId = details.id || `milestone-details-${index + 1}`;
+
+        if (!details.id) {
+          details.id = detailsId;
+        }
+
         card.setAttribute("aria-controls", detailsId);
       }
 
@@ -142,6 +398,39 @@
         }
       });
     });
+
+    // Accessible newsletter form validation and success message
+    const newsletterForm = document.getElementById("newsletterForm");
+    const newsletterSuccess = document.getElementById("newsletterSuccess");
+
+    if (newsletterForm) {
+      newsletterForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!newsletterForm.checkValidity()) {
+          newsletterForm.classList.add("was-validated");
+          return;
+        }
+
+        newsletterForm.classList.remove("was-validated");
+
+        if (newsletterSuccess) {
+          newsletterSuccess.hidden = false;
+        }
+
+        newsletterForm.reset();
+      });
+    }
+
+    // Set default language direction
+    setDirection("ltr");
   </script>
+
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
 </body>
 </html>
